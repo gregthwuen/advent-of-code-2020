@@ -22,3 +22,7 @@ for seat in input:
     print("Seat ID:", seat_id)
 
 print("Highest seat ID:", max(id_list))
+
+for i in range(min(id_list), max(id_list) + 1):
+    if i not in id_list:
+        print(i, "is missing seat ID")
