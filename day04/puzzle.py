@@ -3,7 +3,6 @@
 import re
 
 def check_passports(regex, fields_req, pp_list):
-    import re
     print("Checking list...")
     valid_passports = 0
     for passport in pp_list:
