@@ -5,15 +5,24 @@ import string
 
 input = open('input', 'r').read().split('\n\n')
 
-yes_count = 0
+anyone_yes = 0
+everyone_yes = 0
 
 for group in input:
-    group_yes = 0
+    group_anyone_yes = 0
+    group_everyone_yes = 0
+    persons = len(group.splitlines())
     group = group.replace('\n', '')
     for i in string.ascii_lowercase:
-        if re.search(i, group):
-            group_yes += 1
-            yes_count += 1
-    print("Group", group, group_yes)
+        group_matches = re.findall(i, group)
+        if group_matches:
+            group_anyone_yes += 1
+            anyone_yes += 1
+        if len(group_matches) == persons:
+            group_everyone_yes += 1
+            everyone_yes += 1
+    print("Group", group, "anyone", group_anyone_yes)
+    print("Group", group, "everyone", group_everyone_yes)
 
-print("All yes:", yes_count)
+print("All anyone yes:", anyone_yes)
+print("All everyone yes:", everyone_yes)
